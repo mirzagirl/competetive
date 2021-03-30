@@ -14,7 +14,7 @@ int main()
             else if(s.size()!=0&&a[i]<=s.top())
             {
                 while(s.size()>0&&a[i]<=s.top())s.pop();
-                if(s.size()!=0)a[i]=s.top();else nsl[i]=-1;
+                if(s.size()!=0)nsl[i]=s.top();else nsl[i]=-1;
               
             }
             else  {
