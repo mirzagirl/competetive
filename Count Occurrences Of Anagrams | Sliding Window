@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;cin>>t;while(t--)
+    {
+        string s,t;
+        cin>>s>>t;
+        int count=0,n=s.size(),k=t.size(),ans=0; 
+        map<char,int> m;
+        for(int i=0;i<k;i++)
+        {
+            m[t[i]]++;
+            
+        } // for(auto i : m )
+        // cout<<i.first<<" "<<i.second<<" ";
+        int i=0,j=0;
+        count=m.size();
+        while(j<n+1)
+        {   
+            if((j-i+1)<=k)
+            {
+                if(m.find(s[j])!=m.end()){m[s[j]]--;
+                if(m[s[j]]==0)count--;}
+                j++;
+                
+            }
+            
+            else if((j-i+1)>k)
+            {
+                if(count==0)ans++;
+                
+                if(m.find(s[i])!=m.end()){if(m[s[i]]==0)count++;m[s[i]]++;}
+                i++;
+                
+            }
+            
+        }cout<<ans<<endl;
+       
+        
+           
+      }
+}
