@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;cin>>t;
+    while(t--)
+    {   string s;cin>>s;
+        int n;n=s.size();
+        int j=0;map<char,int> m; map<char, int>::iterator itr;
+        int max=INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            int f=0;
+            m[s[i]]++;
+            do
+            {
+                f=0;
+            for (itr = m.begin(); itr != m.end(); ++itr)
+            {
+			    	   if (itr->second>1){f=1;break;}
+            }
+                    
+                    if(f==0)if(max<(i-j+1))max=i-j+1;
+                   if(f==1) {m[s[j]]--;if(m[s[j]]==0)m.erase(s[j]);j++;}
+            }while(f==1);
+        }
+        if(s=="")cout<<"0\n";else
+        cout<<max<<endl;
+    }
+}
