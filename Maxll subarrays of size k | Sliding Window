@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    
+    int t;cin>>t;
+    while(t--)
+    {
+       int n,k;cin>>n>>k;int a[n];map<int,int> s1;for(int i=0;i<n;i++)cin>>a[i];
+	   int s=0,e=0,sum=0,f=1;
+	  while(e<n)
+	  {  if(f==1)
+	      sum+=a[e];
+	      
+	      if(sum>k)
+	     { 
+	        s1[e-s+1]++;
+	       
+	        sum-=a[s];
+	         s++;f=0;
+	     }
+	     else {e++;f=1;}
+	  
+	  
+	  }int k1=0;
+	   for(auto i:s1)cout<<i.first<<" ";
+	//  for(auto i:s1)if(k1==0){k1=i.first;break;}
+//cout<<k1-1<<endl;
+cout<<endl;
+        
+    }
+}
+
