@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,x,k;cin>>n>>x>>k;
+    priority_queue<pair<int,int>> q;
+    for(int i=0;i<n;i++)
+    {
+        int a;cin>>a;
+        int l=abs(x-a);
+        cout<<l<<"  "<<a<<" ";
+        q.push(make_pair(l,a));
+        if(q.size()>(k+1))q.pop();
+    }
+    int n1=q.size();
+    for(int j=0;j<n1;j++){
+        pair<int,int> t=q.top();
+        cout<<t.second<<" ";
+        q.pop();
+        
+    }
+    
+    
+    
+    
+}
