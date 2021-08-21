@@ -1,12 +1,10 @@
-#include<iostream>
-
-
+#include<bits/stdc++.h>
 struct node
 {
 	int data;
 	node* next;
 }
-*start=NULL,*end=NULL,*temp,*newn,*prev;
+*start=NULL,*temp,*newn,*prev;
 
 int num=0;
 
@@ -38,11 +36,15 @@ void iaf()
 }
 
 void ial()
-{
-	end->next=newn;
-	end=newn;
-	num++;
-	traverse();
+{  
+     temp=start;
+   while(temp->next!=NULL)
+    {	
+	 temp=temp->next;
+    }
+    temp->next=newn;
+    num++;
+  traverse();
 }
 
 void iap()
@@ -66,33 +68,26 @@ void iap()
 }
 
 void dff()
-{if(num==0)std::cout<<"EMPTY :((";
-else 	if(start==end)
-	end=NULL;
-	else
-	start=start->next;
-	num--;
+{   if(num==0)std::cout<<"EMPTY :((";
+    else
+	{start=start->next;
+	num--;}
 	traverse();
 }
 
 void dfl()
-{  if(num==0)std::cout<<"EMPTY :((";else
-	if(start==end)
-	{
-		start=NULL;
-		end=NULL;
-	}
+{    if(num==0)std::cout<<"EMPTY :((";
+	else if(num==1){start->next=NULL;num--;}
 	else
 	{
 		temp=start;
-		while(temp->next!=end)
-		{
-			temp=temp->next;
-			temp->next=NULL;
-			end=temp;
+		while(temp->next->next!=NULL)
+		    temp=temp->next;
+		    temp->next=NULL;
+		  
 			num--;
-		}
 	}
+	
 	traverse();	
 }
 int dfp()
@@ -136,7 +131,7 @@ int main()
     		else if(start==NULL)
     			{
     				start=newn;
-    				end=newn;
+    				
     				num++;
 				}
 			else
